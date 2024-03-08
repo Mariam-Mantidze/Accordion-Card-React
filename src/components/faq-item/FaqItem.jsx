@@ -1,3 +1,6 @@
+import "./faqItem.css";
+import Arrow from "/images/icon-arrow-down.svg";
+
 const faqItems = [
   {
     question: "How many team members can I invite?",
@@ -29,15 +32,32 @@ const faqItems = [
 export default function FaqItem({ answer, setAnswer }) {
   const handleClick = function (index) {
     setAnswer(index);
+    if (answer === index) {
+      setAnswer(null);
+    } else {
+      setAnswer(index);
+    }
   };
   return (
     <>
-      <ul>
+      <ul className="question-section">
         {faqItems.map((faqItem, index) => (
-          <li onClick={() => handleClick(index)} key={index}>
+          <li
+            className="faq-item"
+            onClick={() => handleClick(index)}
+            key={index}>
             <>
-              <h3>{faqItem.question}</h3>
-              {answer === index ? <p>{faqItem.answer}</p> : null}
+              <h3 className="question">{faqItem.question}</h3>
+              {answer === index ? (
+                <p className="answer">{faqItem.answer}</p>
+              ) : null}
+              <div className="line"></div>
+              <img
+                style={answer === index ? { transform: "rotate(180deg)" } : {}}
+                className="arrow"
+                src={Arrow}
+                alt="icon of arrow"
+              />
             </>
           </li>
         ))}

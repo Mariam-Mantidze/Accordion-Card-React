@@ -1,6 +1,21 @@
 .card-container {
-  width: 327px;
-
-  background: rgba(255, 255, 255, 1);
+  background: #ffffff;
+  box-shadow: 0px 50px 50px -20px #35127a7f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
   border-radius: 20px;
+  padding: 0 24px 48px;
+  width: 327px;
+}
+
+h1 {
+  align-self: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 0px;
+  color: rgba(30, 31, 54, 1);
+  margin-top: 132px;
 }
