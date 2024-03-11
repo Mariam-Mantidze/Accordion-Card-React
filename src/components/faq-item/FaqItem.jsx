@@ -1,6 +1,6 @@
 import "./faqItem.css";
 import Arrow from "/images/icon-arrow-down.svg";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const faqItems = [
   {
@@ -37,21 +37,20 @@ const faqItems = [
 // `;
 
 const Question = styled.h2`
-  cursor: pointer;
-  font-size: 13px;
-  line-height: 16.12px;
-  padding: 19px 0 18px 0px;
-  text-align: left;
-  color: #4b4c5f;
-  font-weight: ${(props) => (props.answer === props.index ? "700" : "400")};
-  margin-right: 35px;
+  ${(props) => css`
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 16.12px;
+    padding: 19px 0 18px 0px;
+    text-align: left;
+    color: #4b4c5f;
+    font-weight: ${props.answer === props.index ? "700" : "400"};
+    margin-right: 35px;
 
-  &:hover {
-    color: rgba(244, 123, 86, 1);
-  }
-
-  /* border-bottom: 1px solid #e8e8ea;
-  padding-bottom: 18px; */
+    &:hover {
+      color: rgba(244, 123, 86, 1);
+    }
+  `}
 `;
 
 const Answer = styled.p`

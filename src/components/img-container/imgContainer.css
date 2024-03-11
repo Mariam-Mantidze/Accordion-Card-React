@@ -10,3 +10,23 @@
   top: 0;
   left: 14%;
 }
+
+.box {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .main-img {
+    display: none;
+  }
+  .shadow {
+    display: none;
+  }
+
+  .box {
+    display: block;
+    position: absolute;
+    top: 205.13px;
+    left: -96.07px;
+  }
+}
