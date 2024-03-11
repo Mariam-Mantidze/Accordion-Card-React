@@ -1,5 +1,6 @@
 import "./faqItem.css";
 import Arrow from "/images/icon-arrow-down.svg";
+import styled from "styled-components";
 
 const faqItems = [
   {
@@ -29,6 +30,41 @@ const faqItems = [
   },
 ];
 
+// const QuestionSection = styled.section`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 12px;
+// `;
+
+const Question = styled.h2`
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 16.12px;
+  padding: 19px 0 18px 0px;
+  text-align: left;
+  color: #4b4c5f;
+  font-weight: ${(props) => (props.answer === props.index ? "700" : "400")};
+  margin-right: 35px;
+
+  &:hover {
+    color: rgba(244, 123, 86, 1);
+  }
+
+  /* border-bottom: 1px solid #e8e8ea;
+  padding-bottom: 18px; */
+`;
+
+const Answer = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: #787887;
+  margin-bottom: 16px;
+  transition: 0.4s ease-in-out;
+`;
+
 export default function FaqItem({ answer, setAnswer }) {
   const handleClick = function (index) {
     setAnswer(index);
@@ -40,6 +76,10 @@ export default function FaqItem({ answer, setAnswer }) {
   };
   return (
     <>
+      <div>
+        <Question></Question>
+      </div>
+
       <ul className="question-section">
         {faqItems.map((faqItem, index) => (
           <li
@@ -47,10 +87,11 @@ export default function FaqItem({ answer, setAnswer }) {
             onClick={() => handleClick(index)}
             key={index}>
             <>
-              <h3 className="question">{faqItem.question}</h3>
-              {answer === index ? (
-                <p className="answer">{faqItem.answer}</p>
-              ) : null}
+              <Question answer={answer} index={index}>
+                {faqItem.question}
+              </Question>
+
+              {answer === index ? <Answer>{faqItem.answer}</Answer> : null}
               <div className="line"></div>
               <img
                 style={answer === index ? { transform: "rotate(180deg)" } : {}}
